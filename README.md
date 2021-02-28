@@ -11,6 +11,9 @@
 
 This is the official extension for Sublime text created by the creators of Edge.js. Along with **syntax highlighting**, the extension adds support for following items.
 
+## Installation
+Install the package from the Package control by searching for "Edge templates extension"
+
 ## Edge spacer
 Automatically adds the whitespace in between the mustache braces `{{ }}`. The extension code is borrowed from [austenc/blade-spacer](https://github.com/austenc/blade-spacer), so credit goes to them.
 
