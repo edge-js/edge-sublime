@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>name</key>
+    <string>Symbol List</string>
+    <key>scope</key>
+    <string>text.html.edge entity.name.function.edge.end, text.html.edge meta.tag.inline.any.html, text.html.edge meta.tag.block.any.html, text.html.edge meta.tag.structure.any.html, text.html.edge meta.tag.inline.form.html, text.html.edge meta.tag.block.form.html</string>
+    <key>settings</key>
+    <dict>
+      <key>showInSymbolList</key>
+      <integer>0</integer>
+    </dict>
+  </dict>
+</plist>

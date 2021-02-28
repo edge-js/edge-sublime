@@ -1,0 +1,73 @@
+{
+ "scope": "text.html.edge",
+ "completions": [
+    {
+      "trigger": "if\tEdge conditional",
+      "contents": "if($1)\n\t${2}\n@end"
+    },
+    {
+      "trigger": "if-else\tEdge conditional with an else statement",
+      "contents": "if($1)\n\t${2}\n@else\n\t${3}\n@end"
+    },
+    {
+      "trigger": "unless\tEdge inverse conditional",
+      "contents": "unless($1)\n\t${2}\n@end"
+    },
+    {
+      "trigger": "unless-else\tEdge inverse conditional with an else statement",
+      "contents": "unless($1)\n\t${2}\n@else\n\t${3}\n@end"
+    },
+    {
+      "trigger": "each\tFor each loop",
+      "contents": "each(${1:item} in ${2:collection})\n\t${3}\n@end"
+    },
+    {
+      "trigger": "each-index\tFor each loop with index",
+      "contents": "each((${1:value}, ${2:key}) in ${3:collection})\n\t${4}\n@end"
+    },
+    {
+      "trigger": "component\tComponent with body",
+      "contents": "component(${1:'$2'})\n\t${3}\n@end"
+    },
+    {
+      "trigger": "!component\tInline component",
+      "contents": "!component(${1:'$2'})"
+    },
+    {
+      "trigger": "slot\tComponent slot",
+      "contents": "@slot('$1')"
+    },
+    {
+      "trigger": "inject\tInject state to the component tree",
+      "contents": "@inject(${1:values})"
+    },
+    {
+      "trigger": "include\tEdge partial",
+      "contents": "include(${1:'$2'})"
+    },
+    {
+      "trigger": "include-if\tEdge conditional partial",
+      "contents": "includeIf(${1:condition}, ${2:'$3'})"
+    },
+    {
+      "trigger": "layout\tEdge layout",
+      "contents": "layout(${1:'$2'})"
+    },
+    {
+      "trigger": "section\tEdge layout section",
+      "contents": "section('$1')"
+    },
+    {
+      "trigger": "super\tInherits section parent contents",
+      "contents": "super"
+    },
+    {
+      "trigger": "debugger\tDebugger breakpoint",
+      "contents": "debugger"
+    },
+    {
+      "trigger": "set\tDefine a local variable",
+      "contents": "@set(${1:'variableName'}, ${2:value})"
+    }
+  ]
+}

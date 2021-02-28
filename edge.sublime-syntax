@@ -1,0 +1,101 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+file_extensions:
+  - edge
+scope: text.html.edge
+contexts:
+  main:
+    - match: ""
+      push: "Packages/HTML/HTML.sublime-syntax"
+      with_prototype:
+        # Escaped mustache block
+        - match: "(@{{2,3})"
+          captures:
+            0: comment.block
+          push: escapedTag
+
+        # Comment
+        - match: "({{--)"
+          captures:
+            0: comment.block
+          push: comment
+
+        # Safe mustache block
+        - match: "({{{)"
+          captures:
+            0: punctuation.definition.safetag.braces.start.edge
+          push: safeMustache
+
+        # Mustache block
+        - match: "({{)"
+          captures:
+            0: punctuation.definition.tag.braces.start.edge
+          push: mustache
+
+        # Non seekable tag
+        - match: ^(\s*)((@{1,2})(!)?([a-zA-Z._]+))(~)?$
+          captures:
+            2: entity.name.function.edge.end
+
+        # Seekable tag
+        - match: ^(\s*)((@{1,2})(!)?([a-zA-Z._]+)(\s{0,2}))(\()
+          captures:
+            2: entity.name.function.edge
+          push: tag
+
+  # End of escaped mustache block
+  escapedTag:
+    - match: "(}{2,3})"
+      captures:
+        0: comment.block
+      pop: true
+    - meta_scope: comment.block
+  
+  # End of comment block
+  comment:
+    - match: "(--}})"
+      captures:
+        0: comment.block
+      pop: true
+    - meta_scope: comment.block
+
+  # Process tag contents as Javascript
+  tag:
+    - match: \)
+      pop: true
+    - match: ""
+      push: "Packages/JavaScript/JavaScript.sublime-syntax"
+      with_prototype:
+        - match: (?=\))
+          pop: true
+
+  # Process safe mustache contents as Javascript
+  safeMustache:
+    - match: "(}}})"
+      captures:
+        0: punctuation.definition.safetag.braces.end.edge
+      pop: true
+    - match: ""
+      push: "Packages/JavaScript/JavaScript.sublime-syntax"
+      set:
+        - match: "}}}"
+          scope: punctuation.definition.safetag.braces.end.edge
+      with_prototype:
+        - match: "(?=}}})"
+          pop: true
+
+  # Process mustache contents as Javascript
+  mustache:
+    - match: "(}})"
+      captures:
+        0: punctuation.definition.tag.braces.end.edge
+      pop: true
+    - match: ""
+      push: "Packages/JavaScript/JavaScript.sublime-syntax"
+      set:
+        - match: "}}"
+          scope: punctuation.definition.tag.braces.end.edge
+      with_prototype:
+        - match: "(?=}})"
+          pop: true

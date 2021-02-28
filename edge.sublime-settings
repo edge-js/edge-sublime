@@ -1,0 +1,9 @@
+{
+  "auto_complete_triggers": [
+    {
+      "selector": "text.html.edge",
+      "characters": "@"
+    }
+  ],
+  "auto_complete_include_snippets": true
+}

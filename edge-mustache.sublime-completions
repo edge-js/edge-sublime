@@ -1,0 +1,62 @@
+{
+   "scope": "text.html.edge source.js",
+   "completions":
+   [
+      {
+        "trigger": "inspect\tInspect value by pretty printing it",
+        "contents": "inspect(${1:value})"
+      },
+      {
+        "trigger": "truncate\tTruncate string after given characters count",
+        "contents": "truncate(${1:value}, ${2:100})"
+      },
+      {
+        "trigger": "excerpt\tGenerate plain text excerpt and truncate after given characters count",
+        "contents": "excerpt(${1:value}, ${2:100})"
+      },
+      {
+        "trigger": "props.serialize\tSerialize component props to HTML attributes",
+        "contents": "\\$props.serialize(${1:optionalObjectToMerge})"
+      },
+      {
+        "trigger": "props.serializeOnly\tSerialize selected component props to HTML attributes",
+        "contents": "\\$props.serializeOnly([$1], ${2:optionalObjectToMerge})"
+      },
+      {
+        "trigger": "props.serializeExcept\tSerialize selected component props to HTML attributes",
+        "contents": "\\$props.serializeExcept([$1], ${2:optionalObjectToMerge})"
+      },
+      {
+        "trigger": "filename\tPath to the template file",
+        "contents": "\\$filename"
+      },
+      {
+        "trigger": "state\tTemplate state object",
+        "contents": "state"
+      },
+      {
+        "trigger": "caller.filename\tComponent caller filename",
+        "contents": "\\$caller.filename"
+      },
+      {
+        "trigger": "caller.line\tComponent caller line number",
+        "contents": "\\$caller.line"
+      },
+      {
+        "trigger": "caller.col\tComponent caller column number",
+        "contents": "\\$caller.col"
+      },
+      {
+        "trigger": "pluralize\tPluralize a word",
+        "contents": "pluralize(${1:value}${2:, optionalCount})"
+      },
+      {
+        "trigger": "condenseWhitespace\tRemove extra whitespaces from a string",
+        "contents": "condenseWhitespace(${1:value})"
+      },
+      {
+        "trigger": "ordinalize\tOrdinalize a string or a number value",
+        "contents": "ordinalize(${1:value})"
+      }
+   ]
+}
