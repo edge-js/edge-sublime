@@ -1,6 +1,6 @@
-Edge templates extension for Sublime Text
+Edge teamplates official extension for Sublime Text
 
-This extension adds support for
+This extension adds support for:
 
 - Syntax support for edge templates
 - Edge completions

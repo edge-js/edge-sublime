@@ -15,6 +15,10 @@
         "contents": "excerpt(${1:value}, ${2:100})"
       },
       {
+        "trigger": "slots\tRender a component slot",
+        "contents": "await \\$slots.${1:main($2)}"
+      },
+      {
         "trigger": "props.serialize\tSerialize component props to HTML attributes",
         "contents": "\\$props.serialize(${1:optionalObjectToMerge})"
       },
@@ -57,6 +61,46 @@
       {
         "trigger": "ordinalize\tOrdinalize a string or a number value",
         "contents": "ordinalize(${1:value})"
+      },
+      {
+        "trigger": "route\tMake URL for a route",
+        "contents": "route('${1:routeName}', ${2:[args]})"
+      },
+      {
+        "trigger": "signedRoute\tMake signed URL for a route",
+        "contents": "signedRoute('${1:routeName}', ${2:[args]})"
+      },
+      {
+        "trigger": "flashMessages.has\tCheck if a flash message exists",
+        "contents": "flashMessages.has('${1:${2:key}}')"
+      },
+      {
+        "trigger": "flashMessages.get\tGet flash message value",
+        "contents": "flashMessages.get('${1:${2:key}}', ${3:'${4:defaultValue}'})"
+      },
+      {
+        "trigger": "flashMessages.all\tInspect all messages",
+        "contents": "inspect(flashMessages.all())"
+      },
+      {
+        "trigger": "asset\tGet path to a frontend asset",
+        "contents": "asset('${1:filePath}')"
+      },
+      {
+        "trigger": "csrfField\tAdd csrfField input field to form",
+        "contents": "csrfField()"
+      },
+      {
+        "trigger": "cspNonce\tUse csp nonce on script tag",
+        "contents": "cspNonce"
+      },
+      {
+        "trigger": "auth.isLoggedIn\tFind if user is loggedin",
+        "contents": "auth.isLoggedIn"
+      },
+      {
+        "trigger": "auth.user\tGet auth user",
+        "contents": "auth.user"
       }
    ]
 }

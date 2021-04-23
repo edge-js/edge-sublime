@@ -1,5 +1,5 @@
 {
- "scope": "text.html.edge",
+ "scope": "text.html.edge -source.js",
  "completions": [
     {
       "trigger": "if\tEdge conditional",
@@ -58,6 +58,10 @@
       "contents": "section('$1')"
     },
     {
+      "trigger": "!section\tInline section",
+      "contents": "!section('$1')"
+    },
+    {
       "trigger": "super\tInherits section parent contents",
       "contents": "super"
     },
@@ -68,6 +72,22 @@
     {
       "trigger": "set\tDefine a local variable",
       "contents": "@set(${1:'variableName'}, ${2:value})"
-    }
+    },
+    {
+      "trigger": "entry\tAdd entry point scripts",
+      "contents": "entryPointScripts('${1:app}')"
+    },
+    {
+      "trigger": "entry\tAdd entry point styles",
+      "contents": "entryPointStyles('${1:app}')"
+    },
+    {
+      "trigger": "can\tBouncer can guard",
+      "contents": "can('${1:Policy.action}'${2:, ${3:args}})"
+    },
+    {
+      "trigger": "cannot\tBouncer cannot guard",
+      "contents": "cannot('${1:Policy.action}'${2:, ${3:args}})"
+    },
   ]
 }
