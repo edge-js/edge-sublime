@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./assets/banner-min.jpg" />
+  <img src="./assets/banner-min.jpeg" />
 </div>
 <div align="center">
   <h2> Edge templates extension for Sublime Text </h2>
@@ -22,12 +22,12 @@ Automatically adds the whitespace in between the mustache braces `{{ }}`. The ex
 ## Completions
 The extensions adds support for completion of known tags and global variables. It is based off the sublime completions file.
 
-![](./assets/autocomplete-min.jpg)
+![](./assets/autocomplete-min.jpeg)
 
 ## Symbols
 All of the edge tags shows up inside the Sublime symbols list. You can quickly nagivate between them.
 
-![](./assets/symbols-min.jpg)
+![](./assets/symbols-min.jpeg)
 
 ## Other
 - The extension works perfectly with existing HTML shortcuts or completions provided by Sublime
