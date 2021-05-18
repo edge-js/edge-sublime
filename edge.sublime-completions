@@ -35,11 +35,11 @@
     },
     {
       "trigger": "slot\tComponent slot",
-      "contents": "@slot('$1')"
+      "contents": "slot('$1')\n\t${2}\n@end"
     },
     {
       "trigger": "inject\tInject state to the component tree",
-      "contents": "@inject(${1:values})"
+      "contents": "inject(${1:values})"
     },
     {
       "trigger": "include\tEdge partial",
@@ -55,7 +55,7 @@
     },
     {
       "trigger": "section\tEdge layout section",
-      "contents": "section('$1')"
+      "contents": "section('$1')\n\t${2}\n@end"
     },
     {
       "trigger": "!section\tInline section",
@@ -71,7 +71,7 @@
     },
     {
       "trigger": "set\tDefine a local variable",
-      "contents": "@set(${1:'variableName'}, ${2:value})"
+      "contents": "set(${1:'variableName'}, ${2:value})"
     },
     {
       "trigger": "entry\tAdd entry point scripts",
