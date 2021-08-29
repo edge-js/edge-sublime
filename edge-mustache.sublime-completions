@@ -15,8 +15,8 @@
         "contents": "excerpt(${1:value}, ${2:100})"
       },
       {
-        "trigger": "slots\tRender a component slot",
-        "contents": "await \\$slots.${1:main($2)}"
+        "trigger": "safe\tRender HTML markup without escaping it",
+        "contents": "safe(${1:'${2: markup}'})"
       },
       {
         "trigger": "props.serialize\tSerialize component props to HTML attributes",
@@ -49,18 +49,6 @@
       {
         "trigger": "caller.col\tComponent caller column number",
         "contents": "\\$caller.col"
-      },
-      {
-        "trigger": "pluralize\tPluralize a word",
-        "contents": "pluralize(${1:value}${2:, optionalCount})"
-      },
-      {
-        "trigger": "condenseWhitespace\tRemove extra whitespaces from a string",
-        "contents": "condenseWhitespace(${1:value})"
-      },
-      {
-        "trigger": "ordinalize\tOrdinalize a string or a number value",
-        "contents": "ordinalize(${1:value})"
       },
       {
         "trigger": "route\tMake URL for a route",
@@ -101,6 +89,98 @@
       {
         "trigger": "auth.user\tGet auth user",
         "contents": "auth.user"
+      },
+      {
+        "trigger": "app\tReference to application instance",
+        "contents": "app"
+      },
+      {
+        "trigger": "env\tGet environment variable value",
+        "contents": "env('${1:key}')"
+      },
+      {
+        "trigger": "config\tGet config value",
+        "contents": "config('${1:key}')"
+      },
+      {
+        "trigger": "driveUrl\tGet URL to a file using AdonisJS drive",
+        "contents": "await driveUrl('${1:location}'${2:, 'optionalDiskName'})"
+      },
+      {
+        "trigger": "driveSignedUrl\tGet signed URL to a file using AdonisJS drive",
+        "contents": "await driveSignedUrl('${1:location}'${2:, 'optionalDiskName'})"
+      },
+      {
+        "trigger": "camelCase\tConvert a string to camelcase",
+        "contents": "camelCase(${1:'${2:value}'})"
+      },
+      {
+        "trigger": "snakeCase\tConvert a string to snakeCase",
+        "contents": "snakeCase(${1:'${2:value}'})"
+      },
+      {
+        "trigger": "dashCase\tConvert a string to dashCase",
+        "contents": "dashCase(${1:'${2:value}'})"
+      },
+      {
+        "trigger": "pascalCase\tConvert a string to pascalCase",
+        "contents": "pascalCase(${1:'${2:value}'})"
+      },
+      {
+        "trigger": "capitalCase\tConvert a string to capitalCase",
+        "contents": "capitalCase(${1:'${2:value}'})"
+      },
+      {
+        "trigger": "sentenceCase\tConvert a string to sentenceCase",
+        "contents": "sentenceCase(${1:'${2:value}'})"
+      },
+      {
+        "trigger": "dotCase\tConvert a string to dotCase",
+        "contents": "dotCase(${1:'${2:value}'})"
+      },
+      {
+        "trigger": "noCase\tRemove all sort of casing from a string",
+        "contents": "noCase(${1:'${2:value}'})"
+      },
+      {
+        "trigger": "titleCase\tConvert a string to titleCase",
+        "contents": "titleCase(${1:'${2:value}'})"
+      },
+      {
+        "trigger": "pluralize\tPluralize a word",
+        "contents": "pluralize(${1:value}${2:, optionalCount})"
+      },
+      {
+        "trigger": "toSentence\tConvert an array to a sentence",
+        "contents": "toSentence([${1:'car'}, ${2: 'truck'}, ${3: 'van'}], { separator: ', ', lastSeparator: ', or ' })"
+      },
+      {
+        "trigger": "prettyBytes\tPretty print bytes to human readable string",
+        "contents": "prettyBytes(${1:1024})"
+      },
+      {
+        "trigger": "toBytes\tConvert human readable expression to bytes",
+        "contents": "toBytes(${1:'1MB'})"
+      },
+      {
+        "trigger": "prettyMs\tPretty print milliseconds to human readable string",
+        "contents": "prettyMs(${1:60000})"
+      },
+      {
+        "trigger": "toMs\tConvert human readable expression to milliseconds",
+        "contents": "toMs(${1:'1min'})"
+      },
+      {
+        "trigger": "ordinalize\tOrdinalize a string or a number value",
+        "contents": "ordinalize(${1:value})"
+      },
+      {
+        "trigger": "nl2br\tConvert new line to br tags",
+        "contents": "nl2br(e(${1:'${2:contents}'}))"
+      },
+      {
+        "trigger": "e\tEscape HTML markup",
+        "contents": "e(${1:'${2:markup}'})"
       }
    ]
 }

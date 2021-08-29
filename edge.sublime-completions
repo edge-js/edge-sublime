@@ -6,6 +6,14 @@
       "contents": "if($1)\n\t${2}\n@end"
     },
     {
+      "trigger": "elseif\tEdge conditional elseif block",
+      "contents": "elseif($1)\n\t${2}"
+    },
+    {
+      "trigger": "else\tEdge conditional else block",
+      "contents": "else\n\t${2}"
+    },
+    {
       "trigger": "if-else\tEdge conditional with an else statement",
       "contents": "if($1)\n\t${2}\n@else\n\t${3}\n@end"
     },
