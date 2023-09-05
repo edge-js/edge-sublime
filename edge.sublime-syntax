@@ -51,7 +51,7 @@ contexts:
         0: comment.block
       pop: true
     - meta_scope: comment.block
-  
+
   # End of comment block
   comment:
     - match: "(--}})"
@@ -62,12 +62,12 @@ contexts:
 
   # Process tag contents as Javascript
   tag:
-    - match: \)
+    - match: \)\n
       pop: true
     - match: ""
       push: "Packages/JavaScript/JavaScript.sublime-syntax"
       with_prototype:
-        - match: (?=\))
+        - match: (?=\)\n)
           pop: true
 
   # Process safe mustache contents as Javascript
