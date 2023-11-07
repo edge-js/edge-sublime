@@ -50,44 +50,36 @@
       "contents": "inject(${1:values})"
     },
     {
+      "trigger": "eval\tEvaluate an expression",
+      "contents": "eval(${1:expression})"
+    },
+    {
+      "trigger": "newError\tThrow an error with stack trace pointing to Edge template",
+      "contents": "newError('${1:message}', \\$caller.filename, \\$caller.line, \\$caller.col)"
+    },
+    {
       "trigger": "include\tEdge partial",
       "contents": "include(${1:'$2'})"
+    },
+    {
+      "trigger": "svg\tRender an SVG icon",
+      "contents": "svg(${1:'$2'})"
     },
     {
       "trigger": "include-if\tEdge conditional partial",
       "contents": "includeIf(${1:condition}, ${2:'$3'})"
     },
     {
-      "trigger": "layout\tEdge layout",
-      "contents": "layout(${1:'$2'})"
-    },
-    {
-      "trigger": "section\tEdge layout section",
-      "contents": "section('$1')\n\t${2}\n@end"
-    },
-    {
-      "trigger": "!section\tInline section",
-      "contents": "!section('$1')"
-    },
-    {
-      "trigger": "super\tInherits section parent contents",
-      "contents": "super"
-    },
-    {
       "trigger": "debugger\tDebugger breakpoint",
       "contents": "debugger"
     },
     {
-      "trigger": "set\tDefine a local variable",
-      "contents": "set(${1:'variableName'}, ${2:value})"
+      "trigger": "let\tDefine a local variable",
+      "contents": "let(${1:variableName} = ${2:value})"
     },
     {
-      "trigger": "entry\tAdd entry point scripts",
-      "contents": "entryPointScripts('${1:app}')"
-    },
-    {
-      "trigger": "entry\tAdd entry point styles",
-      "contents": "entryPointStyles('${1:app}')"
+      "trigger": "vite\tReference vite entrypoint file",
+      "contents": "vite('${1:resources/js/app.js}')"
     },
     {
       "trigger": "can\tBouncer can guard",

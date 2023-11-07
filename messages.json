@@ -2,5 +2,6 @@
   "install": "messages/install.md",
   "2.1.0": "messages/2.1.0.md",
   "2.1.1": "messages/2.1.1.md",
-  "2.1.2": "messages/2.1.2.md"
+  "2.1.2": "messages/2.1.2.md",
+  "3.0.0": "messages/3.0.0.md"
 }

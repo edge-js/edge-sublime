@@ -3,32 +3,24 @@
    "completions":
    [
       {
-        "trigger": "inspect\tInspect value by pretty printing it",
-        "contents": "inspect(${1:value})"
+        "trigger": "props.toAttrs\tSerialize component props to HTML attributes",
+        "contents": "\\$props.toAttrs()"
       },
       {
-        "trigger": "truncate\tTruncate string after given characters count",
-        "contents": "truncate(${1:value}, ${2:100})"
+        "trigger": "props.merge\tMerge defaults and serialize props to HTML attributes",
+        "contents": "\\$props.merge([$1]).toAttrs()"
       },
       {
-        "trigger": "excerpt\tGenerate plain text excerpt and truncate after given characters count",
-        "contents": "excerpt(${1:value}, ${2:100})"
+        "trigger": "props.only\tSerialize selected component props to HTML attributes",
+        "contents": "\\$props.only([$1]).toAttrs()"
       },
       {
-        "trigger": "safe\tRender HTML markup without escaping it",
-        "contents": "safe(${1:'${2: markup}'})"
+        "trigger": "props.except\tSerialize selected component props to HTML attributes",
+        "contents": "\\$props.except([$1]).toAttrs()"
       },
       {
-        "trigger": "props.serialize\tSerialize component props to HTML attributes",
-        "contents": "\\$props.serialize(${1:optionalObjectToMerge})"
-      },
-      {
-        "trigger": "props.serializeOnly\tSerialize selected component props to HTML attributes",
-        "contents": "\\$props.serializeOnly([$1], ${2:optionalObjectToMerge})"
-      },
-      {
-        "trigger": "props.serializeExcept\tSerialize selected component props to HTML attributes",
-        "contents": "\\$props.serializeExcept([$1], ${2:optionalObjectToMerge})"
+        "trigger": "slots\tRender a slot",
+        "contents": "\\$slots.${1}"
       },
       {
         "trigger": "filename\tPath to the template file",
@@ -51,64 +43,40 @@
         "contents": "\\$caller.col"
       },
       {
-        "trigger": "route\tMake URL for a route",
-        "contents": "route('${1:routeName}', ${2:[args]})"
+        "trigger": "nl2br\tConvert new line to br tags",
+        "contents": "nl2br(e(${1:'${2:contents}'}))"
       },
       {
-        "trigger": "signedRoute\tMake signed URL for a route",
-        "contents": "signedRoute('${1:routeName}', ${2:[args]})"
+        "trigger": "inspect\tInspect value by pretty printing it",
+        "contents": "inspect(${1:value})"
       },
       {
-        "trigger": "flashMessages.has\tCheck if a flash message exists",
-        "contents": "flashMessages.has('${1:${2:key}}')"
+        "trigger": "truncate\tTruncate string after given characters count",
+        "contents": "truncate(${1:value}, ${2:100})"
       },
       {
-        "trigger": "flashMessages.get\tGet flash message value",
-        "contents": "flashMessages.get('${1:${2:key}}', ${3:'${4:defaultValue}'})"
+        "trigger": "excerpt\tGenerate plain text excerpt and truncate after given characters count",
+        "contents": "excerpt(${1:value}, ${2:100})"
       },
       {
-        "trigger": "flashMessages.all\tInspect all messages",
-        "contents": "inspect(flashMessages.all())"
+        "trigger": "escape\tEscape HTML markup",
+        "contents": "html.escape(${1:'${2:markup}'})"
       },
       {
-        "trigger": "asset\tGet path to a frontend asset",
-        "contents": "asset('${1:filePath}')"
+        "trigger": "safe\tRender HTML markup without escaping it",
+        "contents": "html.safe(${1:'${2: markup}'})"
       },
       {
-        "trigger": "csrfField\tAdd csrfField input field to form",
-        "contents": "csrfField()"
+        "trigger": "classNames\tGenerate HTML class string from an array of values",
+        "contents": "html.classNames(${1:[${2: markup}]})"
       },
       {
-        "trigger": "cspNonce\tUse csp nonce on script tag",
-        "contents": "cspNonce"
+        "trigger": "attrs\tGenerate HTML attributes from an object",
+        "contents": "html.attrs(${1:{${2: markup}}})"
       },
       {
-        "trigger": "auth.isLoggedIn\tFind if user is loggedin",
-        "contents": "auth.isLoggedIn"
-      },
-      {
-        "trigger": "auth.user\tGet auth user",
-        "contents": "auth.user"
-      },
-      {
-        "trigger": "app\tReference to application instance",
-        "contents": "app"
-      },
-      {
-        "trigger": "env\tGet environment variable value",
-        "contents": "env('${1:key}')"
-      },
-      {
-        "trigger": "config\tGet config value",
-        "contents": "config('${1:key}')"
-      },
-      {
-        "trigger": "driveUrl\tGet URL to a file using AdonisJS drive",
-        "contents": "await driveUrl('${1:location}'${2:, 'optionalDiskName'})"
-      },
-      {
-        "trigger": "driveSignedUrl\tGet signed URL to a file using AdonisJS drive",
-        "contents": "await driveSignedUrl('${1:location}'${2:, 'optionalDiskName'})"
+        "trigger": "stringify\tStringify a value for serialization",
+        "contents": "js.stringify(${1})"
       },
       {
         "trigger": "camelCase\tConvert a string to camelcase",
@@ -151,16 +119,8 @@
         "contents": "pluralize(${1:value}${2:, optionalCount})"
       },
       {
-        "trigger": "toSentence\tConvert an array to a sentence",
-        "contents": "toSentence([${1:'car'}, ${2: 'truck'}, ${3: 'van'}], { separator: ', ', lastSeparator: ', or ' })"
-      },
-      {
-        "trigger": "prettyBytes\tPretty print bytes to human readable string",
-        "contents": "prettyBytes(${1:1024})"
-      },
-      {
-        "trigger": "toBytes\tConvert human readable expression to bytes",
-        "contents": "toBytes(${1:'1MB'})"
+        "trigger": "sentence\tConvert an array to a sentence",
+        "contents": "sentence([${1:'car'}, ${2: 'truck'}, ${3: 'van'}], { separator: ', ', lastSeparator: ', or ' })"
       },
       {
         "trigger": "prettyMs\tPretty print milliseconds to human readable string",
@@ -171,16 +131,68 @@
         "contents": "toMs(${1:'1min'})"
       },
       {
-        "trigger": "ordinalize\tOrdinalize a string or a number value",
-        "contents": "ordinalize(${1:value})"
+        "trigger": "prettyBytes\tPretty print bytes to human readable string",
+        "contents": "prettyBytes(${1:1024})"
       },
       {
-        "trigger": "nl2br\tConvert new line to br tags",
-        "contents": "nl2br(e(${1:'${2:contents}'}))"
+        "trigger": "toBytes\tConvert human readable expression to bytes",
+        "contents": "toBytes(${1:'1MB'})"
       },
       {
-        "trigger": "e\tEscape HTML markup",
-        "contents": "e(${1:'${2:markup}'})"
+        "trigger": "ordinal\tOrdinalize a string or a number value",
+        "contents": "ordinal(${1:value})"
+      },
+      {
+        "trigger": "route\tMake URL for a route",
+        "contents": "route('${1:routeName}', ${2:[args]})"
+      },
+      {
+        "trigger": "signedRoute\tMake signed URL for a route",
+        "contents": "signedRoute('${1:routeName}', ${2:[args]})"
+      },
+      {
+        "trigger": "flashMessages.has\tCheck if a flash message exists",
+        "contents": "flashMessages.has('${1:${2:key}}')"
+      },
+      {
+        "trigger": "flashMessages.get\tGet flash message value",
+        "contents": "flashMessages.get('${1:${2:key}}', ${3:'${4:defaultValue}'})"
+      },
+      {
+        "trigger": "flashMessages.all\tInspect all messages",
+        "contents": "inspect(flashMessages.all())"
+      },
+      {
+        "trigger": "asset\tGet path to a frontend asset",
+        "contents": "asset('${1:filePath}')"
+      },
+      {
+        "trigger": "csrfField\tAdd csrfField input field to form",
+        "contents": "csrfField()"
+      },
+      {
+        "trigger": "cspNonce\tUse csp nonce on script tag",
+        "contents": "cspNonce"
+      },
+      {
+        "trigger": "auth.isAuthenticated\tFind if user is authenticated during the current request",
+        "contents": "auth.isAuthenticated"
+      },
+      {
+        "trigger": "auth.user\tGet auth user",
+        "contents": "auth.user"
+      },
+      {
+        "trigger": "app\tReference to application instance",
+        "contents": "app"
+      },
+      {
+        "trigger": "config\tGet config value",
+        "contents": "config('${1:key}')"
+      },
+      {
+        "trigger": "t\tTranslate message using i18n",
+        "contents": "t('${1:key}', ${2:{args}})"
       }
    ]
 }
