@@ -39,7 +39,7 @@ contexts:
             2: entity.name.function.edge.end
 
         # Seekable tag
-        - match: ^(\s*)((@{1,2})(!)?([a-zA-Z._]+)(\s{0,2}))(\()
+        - match: ^(\s*)((@{1,2})(!)?([a-zA-Z._]+)(\s{0,2}))(?=\()
           captures:
             2: entity.name.function.edge
           push: tag
@@ -51,7 +51,7 @@ contexts:
         0: comment.block
       pop: true
     - meta_scope: comment.block
-  
+
   # End of comment block
   comment:
     - match: "(--}})"
@@ -62,13 +62,17 @@ contexts:
 
   # Process tag contents as Javascript
   tag:
+    - match: \(
+      scope: punctuation.section.arguments.begin.edge
+      set: tag-body
+    - match: (?!\s*\()
+      pop: 1
+
+  tag-body:
     - match: \)
+      scope: punctuation.section.arguments.end.edge
       pop: true
-    - match: ""
-      push: "Packages/JavaScript/JavaScript.sublime-syntax"
-      with_prototype:
-        - match: (?=\))
-          pop: true
+    - include: "Packages/JavaScript/JavaScript.sublime-syntax#expression"
 
   # Process safe mustache contents as Javascript
   safeMustache:
@@ -77,7 +81,7 @@ contexts:
         0: punctuation.definition.safetag.braces.end.edge
       pop: true
     - match: ""
-      push: "Packages/JavaScript/JavaScript.sublime-syntax"
+      push: "Packages/JavaScript/JavaScript.sublime-syntax#expression"
       set:
         - match: "}}}"
           scope: punctuation.definition.safetag.braces.end.edge
@@ -92,7 +96,7 @@ contexts:
         0: punctuation.definition.tag.braces.end.edge
       pop: true
     - match: ""
-      push: "Packages/JavaScript/JavaScript.sublime-syntax"
+      push: "Packages/JavaScript/JavaScript.sublime-syntax#expression"
       set:
         - match: "}}"
           scope: punctuation.definition.tag.braces.end.edge
