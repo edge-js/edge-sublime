@@ -7,8 +7,9 @@ scope: text.html.edge
 contexts:
   main:
     - match: ""
-      push: "Packages/HTML/HTML.sublime-syntax"
-      with_prototype:
+      push:
+        - include: "Packages/HTML/HTML.sublime-syntax"
+
         # Escaped mustache block
         - match: "(@{{2,3})"
           captures:
@@ -85,9 +86,9 @@ contexts:
       set:
         - match: "}}}"
           scope: punctuation.definition.safetag.braces.end.edge
-      with_prototype:
-        - match: "(?=}}})"
-          pop: true
+    - match: "(?=}})"
+      meta_scope: source.js
+      pop: true
 
   # Process mustache contents as Javascript
   mustache:
@@ -100,6 +101,6 @@ contexts:
       set:
         - match: "}}"
           scope: punctuation.definition.tag.braces.end.edge
-      with_prototype:
-        - match: "(?=}})"
-          pop: true
+    - match: "(?=}})"
+      meta_scope: source.js
+      pop: true
